@@ -1,0 +1,11 @@
+[Unit]
+Description=Music Player Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/music_player/start_somafm.sh
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
