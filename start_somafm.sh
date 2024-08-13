@@ -25,3 +25,5 @@ echo $! > /tmp/somafm.pid
 
 # Optionally, you can include a message to indicate that the process is running
 echo "somafm started playing $RANDOM_STRING in the background with PID $(cat /tmp/somafm.pid)"
+
+amixer sset 'Master' 80%
