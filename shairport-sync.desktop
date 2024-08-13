@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=shairport-sync
+Comment=starts the shairport-sync service as a user
+Exec=shairport-sync -v
+Terminal=false
+Type=Application
+NoDisplay=true
+Categories=Multimediay

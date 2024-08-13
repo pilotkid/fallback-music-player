@@ -37,12 +37,12 @@ cp ./start_somafm.sh /bin/music_player/start_somafm.sh
 chmod +x  /bin/music_player/start_somafm.sh
 cp ./end_somafm.sh /bin/music_player/end_somafm.sh
 chmod +x /bin/music_player/end_somafm.sh
-cp ./shairport-sync.conf /etc/shairport-sync.conf
-cp ./music_player.service /etc/systemd/system/music_player.service
+
 
 ## Enable services
-systemctl enable music_player.service
-systemctl enable shairport-sync.service
+mkdir  ~/.config/autostart
+cp ./shairport-sync.desktop ~/.config/autostart/shairport-sync.desktop
+cp ./start-somafm.desktop ~/.config/autostart/start-somafm.desktop
 
 ## Create stations list
 echo "groovesalad" > "/etc/soma-choices.default.csv"
@@ -53,6 +53,9 @@ echo "fluid" >> "/etc/soma-choices.default.csv"
 echo "7soul" >> "/etc/soma-choices.default.csv"
 echo "vaporwaves" >> "/etc/soma-choices.default.csv"
 echo "covers" >> "/etc/soma-choices.default.csv"
+
+## Create cron
+(crontab -l 2>/dev/null; echo "@reboot sleep 60 && amixer set Master 100% && /bin/music_player/start_somafm.sh") | crontab -
 
 # Prompt to reboot the system to apply changes
 echo "Installation complete. Please reboot the system to start the music fallback service."

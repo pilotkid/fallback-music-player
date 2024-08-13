@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=shairport-sync
+Comment=starts the shairport-sync service as a user
+Exec=/bin/music_player/start_somafm.sh
+Terminal=false
+Type=Application
+NoDisplay=true
+Categories=Multimedia
